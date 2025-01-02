@@ -1,14 +1,18 @@
 import React from "react";
-import HomePage from "./pages/homePage"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "../src/pages/homePage";
+import SignupPage from "../src/pages/signin";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-       <HomePage />
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signin" element={<SignupPage />} />
+        {/* Add other routes as needed */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;

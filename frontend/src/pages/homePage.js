@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import image1 from "../images/step1.png";
 import image2 from "../images/step2.png";
 import image3 from "../images/step3.png";
 
 const HomePage = () => {
   const [activeFAQ, setActiveFAQ] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const toggleFAQ = (index) => {
     setActiveFAQ(index === activeFAQ ? null : index);
@@ -33,7 +35,10 @@ const HomePage = () => {
       <section className="bg-blue-50 py-20 text-center">
         <h1 className="text-5xl font-bold">Connect. Collaborate. Create.</h1>
         <p className="mt-6 text-xl text-gray-600">Bridging the gap between users and engineers for seamless project collaboration.</p>
-        <button className="mt-8 px-8 py-4 bg-blue-700 text-white rounded-lg shadow-lg hover:bg-blue-800">
+        <button 
+          className="mt-8 px-8 py-4 bg-blue-700 text-white rounded-lg shadow-lg hover:bg-blue-800"
+          onClick={() => navigate('/signin')} // Navigate to SignIn page
+        >
           Get Started
         </button>
       </section>
@@ -132,7 +137,7 @@ const HomePage = () => {
 
       {/* Footer Section */}
       <footer className="bg-blue-800 text-white py-12">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="max-w-6xl mx-auto px-6 md:px-8 grid grid-cols-2 md:grid-cols-3 gap-100">
           <div>
             <h4 className="font-bold text-lg">About EngiBridge</h4>
             <p className="mt-4 text-gray-200">Connecting users and engineers for seamless project collaboration.</p>
