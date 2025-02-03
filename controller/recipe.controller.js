@@ -1,4 +1,4 @@
-
+const SignUP = require('../models/signupmodel');
 const RecipeModel = require("../models/recipedata");
 
 const getRecipe = async (req, res) => {
