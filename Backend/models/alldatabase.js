@@ -94,6 +94,12 @@ const projectSchema = new mongoose.Schema({
 
 // Contract Schema
 const contractSchema = new mongoose.Schema({
+  contract_id:{
+    type: String,
+    unique: true, // Ensure Contract_id is unique
+    required: [true, "contract ID is required"],
+    default: () => `project_${uuidv4()}`, // Default value using UUID for uniqueness
+  },
   project_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Project',

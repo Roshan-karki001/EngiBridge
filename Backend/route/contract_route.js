@@ -1,20 +1,31 @@
 const express = require("express");
-const {g} = require("../controller/recipe.controller");
+const {
+  postNewContract,
+  getContractById,
+  getAllContracts,
+  editContract,
+  deleteContract,
+  searchContract,
+} = require("../controller/contract_controller");
 
 const router = express.Router();
 
-router.post("/", postnewcontract);
+// Create a new contract
+router.post("/", postNewContract);
 
-router.get("/", getcontract);
+// Get all contracts
+router.get("/", getAllContracts);
 
-router.get("/:id", getidRecipe);
+// Get a specific contract by ID (client_id or engineer_id)
+router.get("/:id", getContractById);
 
+// Edit a contract by contract_id
+router.put("/:id", editContract);
 
+// Delete a contract by contract_id
+router.delete("/:id", deleteContract);
 
-router.put("/:id", editRecipe);
-
-router.delete("/:id", deleteRecipe);
-
-router.get("/search", searchRecipe);
+// Search contracts
+router.get("/search", searchContract);
 
 module.exports = router;

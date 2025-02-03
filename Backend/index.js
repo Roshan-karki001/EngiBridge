@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 const authRoutes = require('./route/auth');
 const contratRoutes =require('./route/contract_route')
+const cprojectRoutes =require('./route/project_route')
 
 dotenv.config();
 
@@ -25,10 +26,13 @@ const startServer = async () => {
   }
 };
 
-// Routes
+// Routes for auth
 app.use('/api/auth', authRoutes);
-app.use('/api/auth', authRoutes);
-app.use('/api/auth', authRoutes);
+
+// Routes for contract
+app.use('/api/contract', contratRoutes);
+
+// Routes for project
 
 
 

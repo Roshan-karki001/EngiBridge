@@ -1,7 +1,6 @@
 const Project = require('../models/alldatabase');
-const RecipeModel = require("../models/recipedata");
 
-const getContract = async (req, res) => {
+const getProject = async (req, res) => {
     try {
         const recipes = await Contract.find();
         res.status(200).json({ success: true, recipes });
@@ -11,7 +10,7 @@ const getContract = async (req, res) => {
     }
 };
 
-const getidcontract=  async (req, res) => {
+const getidProject=  async (req, res) => {
     try {
         const recipe = await Contract.findById(req.params.id);
         if (!recipe) {
@@ -99,4 +98,4 @@ const searchProject=  async (req, res) => {
 };
 
 
-module.exports = {getContract,getidcontract,postnewProject,editProject,deleteProject,searchProject};
+module.exports = {getProject,getidProject,postnewProject,editProject,deleteProject,searchProject};
